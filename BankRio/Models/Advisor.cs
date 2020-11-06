@@ -10,17 +10,15 @@ namespace BankRio.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Initials { get; set; }
-        public string XPCode { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public ICollection<ComissionRecord> Comissions { get; set; }
 
 
-        public Advisor(string name, string initials, string xPCode, string email)
+        public Advisor(string name, string initials, string email)
         {
             Name = name;
             Initials = initials;
-            XPCode = xPCode;
             Email = email;
         }
 
@@ -36,7 +34,7 @@ namespace BankRio.Models
 
         public double TotalComissions(DateTime initial, DateTime final)
         {
-            return (Comissions.Where(x => x.Date >= initial && x.Date <= final).Sum(x => x.ITAZ));
+            return (Comissions.Where(x => x.Date >= initial && x.Date <= final).Sum  (x => x.ITAZ));
         }
 
     }
