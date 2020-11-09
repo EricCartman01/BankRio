@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankRio.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,17 +11,19 @@ namespace BankRio.Models
         public int Id { get; set; }
 
         public DateTime Date { get; set; }
+        public Client Client { get; set; }
+        public String Certified { get; set; }
+        public Yield Yield { get; set; }
         public Advisor Advisor { get; set; }
-        public double NetCertification { get; set; }
-        public double Net { get; set; }
-        public double NetBirthday { get; set; }
-        public double NetTotal { get; set; }
-        public double XPC { get; set; }
-        public double CMBC { get; set; }
-        public double PROTC { get; set; }
-        public double ITAZ { get; set; }
-        public double JURC { get; set; }
-        public double PAN { get; set; }
+        public Product Product { get; set; }
+
+        public Double Value { get; set; }
+        public Double LiquidValue { get; set; }
+        public Double PercentualAdvisor { get; set; }
+        public Double ProfitAdvisor { get; set; }
+
+
+
 
     }
 }

@@ -12,14 +12,42 @@ namespace BankRio.Models
         public string Initials { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public double NetCertification { get; set; }
+        public double Net { get; set; }
+        public double NetBirthday { get; set; }
+        public double NetTotal { get; set; }
+        public double XPC { get; set; }
+        public double CMBC { get; set; }
+        public double PROTC { get; set; }
+        public double ITAZ { get; set; }
+        public double JURC { get; set; }
+        public double PAN { get; set; }
         public ICollection<ComissionRecord> Comissions { get; set; }
 
 
-        public Advisor(string name, string initials, string email)
+        public Advisor(string email, string password)
         {
+            Email = email;
+            Password = password;
+        }
+
+        public Advisor(int id, string name, string initials, string email, double netCertification, double net, double netBirthday, double netTotal, double xPC, double cMBC, double pROTC, double iTAZ, double jURC, double pAN, ICollection<ComissionRecord> comissions)
+        {
+            Id = id;
             Name = name;
             Initials = initials;
             Email = email;
+            NetCertification = netCertification;
+            Net = net;
+            NetBirthday = netBirthday;
+            NetTotal = netTotal;
+            XPC = xPC;
+            CMBC = cMBC;
+            PROTC = pROTC;
+            ITAZ = iTAZ;
+            JURC = jURC;
+            PAN = pAN;
+            Comissions = comissions;
         }
 
         public void AddComissions(ComissionRecord comission)
@@ -32,9 +60,9 @@ namespace BankRio.Models
             Comissions.Remove(comission);
         }
 
-        public double TotalComissions(DateTime initial, DateTime final)
+        public double Profit(DateTime initial, DateTime final)
         {
-            return (Comissions.Where(x => x.Date >= initial && x.Date <= final).Sum  (x => x.ITAZ));
+            return (Comissions.Where(x => x.Date >= initial && x.Date <= final).Sum(x => x.ProfitAdvisor));
         }
 
     }

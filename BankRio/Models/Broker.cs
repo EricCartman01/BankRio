@@ -11,7 +11,7 @@ namespace BankRio.Models
         public string Name { get; set; }
         public String Email { get; set; }
         public StockBroker StockBroker { get; set; }
-        public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
+        public ICollection<ComissionRecord> Sales { get; set; } = new List<ComissionRecord>();
 
         public Broker(int id, string name, string email, StockBroker stockBroker)
         {
@@ -21,14 +21,14 @@ namespace BankRio.Models
             StockBroker = stockBroker;
         }
 
-        public void AddSales(SalesRecord sales)
+        public void AddSales(ComissionRecord comission)
         {
-            Sales.Add(sales);
+            Sales.Add(comission);
         } 
 
-        public void RemoveSales(SalesRecord sales)
+        public void RemoveSales(ComissionRecord comission)
         {
-            Sales.Remove(sales);
+            Sales.Remove(comission);
         }
 
         public double TotalSales(DateTime initial, DateTime final)
