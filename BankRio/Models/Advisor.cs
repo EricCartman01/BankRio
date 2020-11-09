@@ -31,6 +31,14 @@ namespace BankRio.Models
             Password = password;
         }
 
+        public Advisor(int id, string name, string initials,string email)
+        {
+            Id = id;
+            Name = name;
+            Initials = initials;
+            Email = email;
+        }
+
         public Advisor(int id, string name, string initials, string email, double netCertification, double net, double netBirthday, double netTotal, double xPC, double cMBC, double pROTC, double iTAZ, double jURC, double pAN, ICollection<ComissionRecord> comissions)
         {
             Id = id;
