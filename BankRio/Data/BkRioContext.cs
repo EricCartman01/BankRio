@@ -5,7 +5,8 @@ namespace BankRio.Data
 {
     public class BkRioContext : DbContext
     {
-        public BkRioContext(DbContextOptions<BkRioContext> options) : base(options)
+        public BkRioContext(DbContextOptions<BkRioContext> options) 
+            : base(options)
         {
 
         }

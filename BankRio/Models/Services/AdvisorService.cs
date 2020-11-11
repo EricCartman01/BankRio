@@ -11,7 +11,11 @@ namespace BankRio.Models.Services
     {
         private readonly BkRioContext _context;
 
-        public void Insert(Advisor advisor)
+        public AdvisorService(BkRioContext bkRioContext)
+        {
+            _context = bkRioContext;
+        }
+        public void Insert(Advisor advisor) 
         {
             _context.Advisor.Add(advisor);
             _context.SaveChanges();
@@ -51,6 +55,17 @@ namespace BankRio.Models.Services
         {
             return _context.Advisor.FirstOrDefault(x => x.Id == id);
         }
+
+        public void LoadXPS()
+        {
+            return;
+        }
+
+        public void LoadXP()
+        {
+
+        }
+
 
     }
 }
