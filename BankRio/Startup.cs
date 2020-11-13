@@ -26,10 +26,14 @@ namespace BankRio
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BkRioContext>(options =>
+            /*services.AddDbContext<BkRioContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BkRioContext"), builder =>
-                builder.MigrationsAssembly("BkRioContext")));
-            
+                builder.MigrationsAssembly("BkRioContext")));*/
+
+            services.AddDbContext<BkRioContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("BkRioContext"), 
+                builder => builder.MigrationsAssembly("BkRioContext")));
+
             services.AddControllersWithViews();
             services.AddScoped<AdvisorService>();
         }

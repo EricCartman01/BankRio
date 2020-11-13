@@ -22,7 +22,7 @@ namespace BankRio.Models
         public double ITAZ { get; set; }
         public double JURC { get; set; }
         public double PAN { get; set; }
-        public ICollection<ComissionRecord> Comissions { get; set; }
+        public ICollection<ComissionRecord> Comissions { get; set; } = new List<ComissionRecord>();
 
 
         public Advisor(string email, string password)
@@ -39,12 +39,9 @@ namespace BankRio.Models
             Email = email;
         }
 
-        public Advisor(int id, string name, string initials, string email, double netCertification, double net, double netBirthday, double netTotal, double xPC, double cMBC, double pROTC, double iTAZ, double jURC, double pAN, ICollection<ComissionRecord> comissions)
+        public Advisor(int id, string name, string initials, string email, string password, double netCertification, double net, double netBirthday, double netTotal, double xPC, double cMBC, double pROTC, double iTAZ, double jURC, double pAN)
         {
-            Id = id;
-            Name = name;
-            Initials = initials;
-            Email = email;
+            Password = password;
             NetCertification = netCertification;
             Net = net;
             NetBirthday = netBirthday;
@@ -55,7 +52,7 @@ namespace BankRio.Models
             ITAZ = iTAZ;
             JURC = jURC;
             PAN = pAN;
-            Comissions = comissions;
+            
         }
 
         public void AddComissions(ComissionRecord comission)
@@ -71,6 +68,11 @@ namespace BankRio.Models
         public double Profit(DateTime initial, DateTime final)
         {
             return (Comissions.Where(x => x.Date >= initial && x.Date <= final).Sum(x => x.ProfitAdvisor));
+        }
+
+        public void ComissionRecords()
+        {
+
         }
 
     }
