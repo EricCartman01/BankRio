@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BankRio.Models;
-using BankRio.Models;
 
 namespace BankRio.Data
 {
@@ -18,6 +17,7 @@ namespace BankRio.Data
 
         public DbSet<Advisor> Advisor{ get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<Client> Client { get; set; }
     }
 }
 
