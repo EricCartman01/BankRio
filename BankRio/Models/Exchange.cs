@@ -26,9 +26,22 @@ namespace BankRio.Models
 
         public Exchange(DateTime date)
         {
-            Date = date;
         }
 
-
+        public Exchange(int id, DateTime date, Advisor advisor, Order order, Currency currency, double grossValue, double value, double cotation, ComissionType comissionType, double spread, double comission, double netValue)
+        {
+            Id = id;
+            Date = date;
+            Advisor = advisor;
+            Order = order;
+            Currency = currency;
+            GrossValue = grossValue;
+            Value = value;
+            Cotation = cotation;
+            ComissionType = comissionType;
+            Spread = spread;
+            Comission = comission;
+            NetValue = netValue;
+        }
     }
 }
