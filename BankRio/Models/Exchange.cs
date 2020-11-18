@@ -10,8 +10,9 @@ namespace BankRio.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-
         public Advisor Advisor { get; set; }
+        public string FirstName { get; set; }
+        public int AdvisorId { get; set; }
         //public string House { get; set; }
         //public Client Client { get; set; }
         public Order Order { get; set; }
